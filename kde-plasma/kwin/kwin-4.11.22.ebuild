@@ -43,12 +43,8 @@ COMMONDEPEND="
 	wayland? ( >=media-libs/mesa-9.0[egl(+),wayland] )
 "
 DEPEND="${COMMONDEPEND}
+	x11-base/xorg-proto
 	x11-libs/xcb-util-renderutil
-	x11-proto/compositeproto
-	x11-proto/damageproto
-	x11-proto/fixesproto
-	x11-proto/randrproto
-	x11-proto/renderproto
 "
 RDEPEND="${COMMONDEPEND}
 	x11-apps/scripts

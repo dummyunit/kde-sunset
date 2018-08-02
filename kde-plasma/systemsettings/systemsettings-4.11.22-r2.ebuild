@@ -35,8 +35,7 @@ COMMONDEPEND="
 	usb? ( virtual/libusb:0 )
 "
 DEPEND="${COMMONDEPEND}
-	x11-proto/kbproto
-	x11-proto/xextproto
+	x11-base/xorg-proto
 "
 RDEPEND="${COMMONDEPEND}
 	sys-libs/timezone-data
