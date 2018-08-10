@@ -1,0 +1,26 @@
+--- a/cmake/modules/FindQt4.cmake
++++ b/cmake/modules/FindQt4.cmake
+@@ -429,6 +429,15 @@
+ ENDMACRO(QT_QUERY_QMAKE)
+ 
+ GET_FILENAME_COMPONENT(qt_install_version "[HKEY_CURRENT_USER\\Software\\trolltech\\Versions;DefaultQtVersion]" NAME)
++if(CMAKE_BUILD_TYPE STREQUAL Gentoo)
++  find_program(QT_QMAKE_EXECUTABLE NAMES qmake
++    PATHS
++      $ENV{EPREFIX}/usr/${CMAKE_INSTALL_LIBDIR}/qt4/bin
++      $ENV{EPREFIX}/usr/bin
++      NO_DEFAULT_PATH
++    DOC "The qmake executable for the Qt installation to use"
++  )
++else()
+ # check for qmake
+ # Debian uses qmake-qt4
+ # macports' Qt uses qmake-mac
+@@ -438,6 +447,7 @@
+   "[HKEY_CURRENT_USER\\Software\\Trolltech\\Versions\\${qt_install_version};InstallDir]/bin"
+   $ENV{QTDIR}/bin
+ )
++endif()
+ 
+ IF (QT_QMAKE_EXECUTABLE)
+ 
